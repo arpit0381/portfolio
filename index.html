@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alexarc Chatbot</title>
+
+    <!-- n8n Chat Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f3f0fa;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .chat-container {
+            background: #fff;
+            width: 100%;
+            max-width: 420px;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0d7f9;
+        }
+
+        .chat-header {
+            background: #6a0dad;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .chat-body {
+            flex: 1;
+            overflow-y: auto;
+            background: #faf9fc;
+        }
+
+        .chat-footer {
+            background: #f8f6fb;
+            color: #555;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 8px;
+            border-top: 1px solid #e0d7f9;
+        }
+
+        @media (max-width: 480px) {
+            .chat-container {
+                height: 100vh;
+                border-radius: 0;
+                max-width: 100%;
+            }
+            .chat-header {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">💬 Alexarc</div>
+        <div class="chat-body" id="chat-root">
+            <!-- Chat widget loads here -->
+        </div>
+        <div class="chat-footer">Created by Arpit Bajpai</div>
+    </div>
+
+    <!-- n8n Chat Script -->
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+        createChat({
+            webhookUrl: 'https://arpit038.app.n8n.cloud/webhook/83b0739d-1a2c-41c7-a639-f9e4df3c6118/chat',
+            target: '#chat-root',
+            mode: 'embedded', // ensures no floating icon
+        });
+    </script>
+</body>
+</html>
